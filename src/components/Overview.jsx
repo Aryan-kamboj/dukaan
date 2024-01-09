@@ -4,8 +4,9 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsDownload } from "react-icons/bs";
-import { FaSortDown } from "react-icons/fa6";
+import { FaAngleRight, FaSortDown } from "react-icons/fa6";
 import { IoIosInformationCircleOutline } from "react-icons/io";
+import { FaAngleLeft } from "react-icons/fa6";
 
 export const Overview = () => {
     const orders = [{
@@ -14,12 +15,6 @@ export const Overview = () => {
           amount:"₹1,278.23",
           fees:"$22",
     },
-    {
-        id:"#281209",
-        date:"7 July, 2023",
-        amount:"₹1,278.23",
-        fees:"$22",
-  },
 {
     id:"#281209",
     date:"7 July, 2023",
@@ -157,21 +152,38 @@ export const Overview = () => {
                     <div className='flex text-[#4D4D4D] justify-center items-center border-[#D9D9D9] border-[1px] rounded-[4px] w-[36px] h-[36px]'><BsDownload/></div>
                 </div>
             </div>
-            <div className='bg-[#F2F2F2] grid grid-cols-4 content-end rounded h-[40px] items-center py-[10px] px-[12px] mt-[12px] text-[#4D4D4D]'>
-                <div className='content-end'>Order ID</div>
-                <div className='content-end flex '><span>Order date</span><FaSortDown/></div>
-                <div className='content-end '>Order amount</div>
-                <div className=' content-end flex  items-center space-x-1'><span>Transaction fees</span><IoIosInformationCircleOutline/></div>
+            <div className='bg-[#F2F2F2] grid grid-cols-4  rounded h-[40px] items-center py-[10px] px-[12px] mt-[12px] text-[#4D4D4D]'>
+                <div className=''>Order ID</div>
+                <div className=' flex '><span>Order date</span><FaSortDown/></div>
+                <div className='text-right'>Order amount</div>
+                <div className='  flex flex-row-reverse items-center space-x-1'><IoIosInformationCircleOutline/><span>Transaction fees</span></div>
             </div>
             <div>
                 {orders.map((order)=>{
-                    return (<div className='py-[14px] mx-[12px] border-b-[1px] content-end border-[#E6E6E6] grid grid-cols-4 '>
-                        <div className='mr-10 content-end text-[#146EB4]'>{order.id}</div>
-                        <div className='content-end' >{order.date}</div>
-                        <div className='mr-12 content-end'>{order.amount}</div>
-                        <div className='content-end'> {order.fees}</div>
+                    return (<div className='py-[14px] mx-[12px] border-b-[1px]  border-[#E6E6E6] text-[#1A181E] grid grid-cols-4 '>
+                        <div className='mr-10  text-[#146EB4]'>{order.id}</div>
+                        <div className='' >{order.date}</div>
+                        <div className=' text-right'>{order.amount}</div>
+                        <div className=' flex flex-row-reverse'> {order.fees}</div>
                     </div>)})
                 }
+            </div>
+            <div className='w-[100%] flex items-center justify-center mt-[30px] mb-[10px] space-x-4'>
+                <button className='border-[1px] p-[6px] text-[#4D4D4D] border-[#D9D9D9] rounded items-center flex '><FaAngleLeft/>Previous</button>
+                <div>
+                    <span className='py-[6px] px-[8px]'>1</span>
+                    <span className='py-[6px] px-[8px]'>...</span>
+                    <span className='py-[6px] px-[8px] rounded bg-[#146EB4] text-white'>10</span>
+                    <span className='py-[6px] px-[8px]'>11</span>
+                    <span className='py-[6px] px-[8px]'>12</span>
+                    <span className='py-[6px] px-[8px]'>13</span>
+                    <span className='py-[6px] px-[8px]'>14</span>
+                    <span className='py-[6px] px-[8px]'>15</span>
+                    <span className='py-[6px] px-[8px]'>16</span>
+                    <span className='py-[6px] px-[8px]'>17</span>
+                    <span className='py-[6px] px-[8px]'>18</span>
+                </div>
+                <button className='border-[1px] p-[6px] text-[#4D4D4D] border-[#D9D9D9] rounded items-center flex '>Next<FaAngleRight/></button>
             </div>
         </div>
     </div>
